@@ -1,15 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 
+const transportKey = "WORKERID_KEY";
+
 async function ClearGalleryCache(env) {
-  const transportKey = "WORKERID_KEY";
-  let helperKey = null;
-  try {
-    helperKey = env.CACHE_KV.get(transportKey);
-  } catch {
-    helperKey = uuidv4();
-    await env.CACHE_KV.put(transportKey, helperKey);
-  }
-  
+  const helperKey = uuidv4();
+  await env.CACHE_KV.put(transportKey, helperKey);
+
   const init = {
     method: "GET",
     headers: {
