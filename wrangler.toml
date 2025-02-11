@@ -1,0 +1,19 @@
+name = "apollocacheupdater"
+main = "worker.js"
+compatibility_date = "2025-01-17"
+preview_urls = false
+send_metrics = false
+workers_dev = false
+
+services = [
+    {binding = "GALLERY", service = "apollogallery"}
+]
+
+[triggers]
+crons = ["0 4 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "apollo-gallery"
+database_id = "4c573785-5d56-4154-9dd2-4517c2e00779"
+
