@@ -5,9 +5,10 @@ preview_urls = false
 send_metrics = false
 workers_dev = true
 
-services = [
-    {binding = "GALLERY", service = "apollogallery"}
-]
+# This doesn't work on the CF backend but does work in wrangler
+# services = [
+#    {binding = "GALLERY", service = "apollogallery"}
+#]
 
 [triggers]
 crons = ["0 4 * * *"]
@@ -16,3 +17,5 @@ crons = ["0 4 * * *"]
 binding = "CACHE_KV"
 id = "ec290df347654a639feecda9c0b077c4"
 
+[vars]
+GALLERY_HOSTNAME="apollogallery.pages.dev"

@@ -18,7 +18,7 @@ async function ClearGalleryCache(env) {
       "WorkerKey": helperKey
     },
   };
-  const apolloGalleryResponse = await env.GALLERY.fetch("https://apollogallery.pages.dev/cf-worker", init);
+  const apolloGalleryResponse = await fetch(`https://${env.GALLERY_HOSTNAME}/cf-worker`, init);
   if (apolloGalleryResponse.ok) {
     const jsonBlob = await apolloGalleryResponse.text();
     return jsonBlob;
