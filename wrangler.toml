@@ -3,7 +3,7 @@ main = "worker.js"
 compatibility_date = "2025-01-17"
 preview_urls = false
 send_metrics = false
-workers_dev = true
+workers_dev = false
 
 # This doesn't work on the CF backend but does work in wrangler
 # services = [
