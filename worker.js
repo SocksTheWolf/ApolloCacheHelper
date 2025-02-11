@@ -18,14 +18,13 @@ async function ClearGalleryCache(env) {
       "WorkerKey": helperKey
     },
   };
-  const apolloGalleryResponse = await env.GALLERY.fetch("/cf-worker", init);
+  const apolloGalleryResponse = await env.GALLERY.fetch("https://apollogallery.pages.dev/cf-worker", init);
   if (apolloGalleryResponse.ok) {
-    const jsonBlob = await apolloGalleryResponse.json();
-    console.log(jsonBlob);
+    const jsonBlob = await apolloGalleryResponse.text();
     return jsonBlob;
   } else {
     console.error(apolloGalleryResponse.status);
-    return null;
+    return "{'handled': false}";
   }
 }
 
@@ -33,7 +32,8 @@ export default {
   async fetch(request, env, ctx) {
       const {pathname} = new URL(request.url);
       if (pathname === "/test") {
-        return new Response(await ClearGalleryCache(env));
+        const testReturn = await ClearGalleryCache(env);
+        return new Response(testReturn, {status: 200, headers: new Headers({"content-type": "application/json"})});
       }
       return new Response('Hello World!');
   },

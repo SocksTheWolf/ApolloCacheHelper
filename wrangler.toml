@@ -12,8 +12,7 @@ services = [
 [triggers]
 crons = ["0 4 * * *"]
 
-[[d1_databases]]
-binding = "DB"
-database_name = "apollo-gallery"
-database_id = "4c573785-5d56-4154-9dd2-4517c2e00779"
+[[kv_namespaces]]
+binding = "CACHE_KV"
+id = "ec290df347654a639feecda9c0b077c4"
 
