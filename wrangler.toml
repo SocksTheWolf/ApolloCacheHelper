@@ -5,10 +5,11 @@ preview_urls = false
 send_metrics = false
 workers_dev = false
 
-# This doesn't work on the CF backend but does work in wrangler
-# services = [
-#    {binding = "GALLERY", service = "apollogallery"}
-#]
+services = [
+  { binding = "LOGGER", service = "workerlogstodiscord" }
+  # This doesn't work on the CF backend but does work in wrangler
+  #{binding = "GALLERY", service = "apollogallery"}
+]
 
 [triggers]
 crons = ["0 4 * * *"]
@@ -19,3 +20,7 @@ id = "ec290df347654a639feecda9c0b077c4"
 
 [vars]
 GALLERY_HOSTNAME="apollo.dog"
+# worker name (used for logging)
+WORKER_NAME = "Apollo Gallery Refresher"
+# if log forwarding should be used
+USE_LOG_FORWARDER = "true"
