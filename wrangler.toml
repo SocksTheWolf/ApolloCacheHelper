@@ -6,9 +6,9 @@ send_metrics = false
 workers_dev = false
 
 services = [
-  { binding = "LOGGER", service = "workerlogstodiscord" }
+  { binding = "LOGGER", service = "workerlogstodiscord" },
   # This doesn't work on the CF backend but does work in wrangler
-  #{binding = "GALLERY", service = "apollogallery"}
+  # {binding = "GALLERY", service = "apollogallery"}
 ]
 
 [triggers]
@@ -19,8 +19,11 @@ binding = "CACHE_KV"
 id = "ec290df347654a639feecda9c0b077c4"
 
 [vars]
-GALLERY_HOSTNAME="apollo.dog"
-# worker name (used for logging)
-WORKER_NAME = "Apollo Gallery Refresher"
+# The hostname that we should update, it ideally would use the CF pages binding, but that doesn't seem to work.
+GALLERY_HOSTNAME = "apollo.dog"
+
+
 # if log forwarding should be used
 USE_LOG_FORWARDER = "true"
+# worker name (used for logging)
+WORKER_NAME = "Apollo Gallery Refresher"

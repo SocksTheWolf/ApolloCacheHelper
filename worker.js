@@ -49,13 +49,13 @@ async function ClearGalleryCache(env) {
       "WorkerKey": helperKey
     },
   };
-  const apolloGalleryResponse = await fetch(`https://${env.GALLERY_HOSTNAME}/cf-worker`, init);
-  if (apolloGalleryResponse.ok) {
-    const jsonBlob = await apolloGalleryResponse.text();
-    await Logger.log(`Updated Apollo Gallery with result ${jsonBlob}`);
+  const galleryResponse = await fetch(`https://${env.GALLERY_HOSTNAME}/cf-worker`, init);
+  if (galleryResponse.ok) {
+    const jsonBlob = await galleryResponse.text();
+    await Logger.log(`Updated gallery with result ${jsonBlob}`);
     return jsonBlob;
   } else {
-    await Logger.error(`Failed to update Apollo Gallery: ${apolloGalleryResponse.status}`);
+    await Logger.error(`Failed to update gallery: ${galleryResponse.status}`);
     return "{'handled': false}";
   }
 }
