@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "uuid": "^11.0.5",
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.4.0"
   }
 }
