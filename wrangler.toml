@@ -26,6 +26,3 @@ GALLERY_HOSTNAME = "apollo.dog"
 USE_LOG_FORWARDER = "true"
 # worker name (used for logging)
 WORKER_NAME = "Apollo Gallery Refresher"
-
-[limits]
-cpu_ms = 10
