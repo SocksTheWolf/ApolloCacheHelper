@@ -6,9 +6,7 @@ send_metrics = false
 workers_dev = false
 
 services = [
-  { binding = "LOGGER", service = "workerlogstodiscord" },
-  # This doesn't work on the CF backend but does work in wrangler
-  # {binding = "GALLERY", service = "apollogallery"}
+  { binding = "LOGGER", service = "workerlogstodiscord" }
 ]
 
 [triggers]
